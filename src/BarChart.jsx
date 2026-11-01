@@ -46,11 +46,14 @@ export default function BarChart() {
             onBlur={() => setTip(null)}
           >
             <span className="name">{d.country}</span>
-            <span className="count">{d.students}</span>
             <div className="track">
-              <div className="bar" style={{ width: `${x(d.students)}%` }} />
+              <div className="bar" style={{ width: `${x(d.students)}%` }}>
+                <span className={`count ${x(d.students) < 9 ? "small" : ""}`}>
+                    {d.students}
+                </span>
+              </div>  
+              </div>
             </div>
-          </div>
         ))}
       </div>
 
