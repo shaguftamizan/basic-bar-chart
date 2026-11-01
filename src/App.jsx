@@ -1,8 +1,8 @@
 import BarChart from "./BarChart.jsx";
 import "./styles.css";
 
-createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+export default function App() {
+  return (
     <div className="page">
       <h1>D3-❤️-React Student Distribution by Country</h1>
       <p className="sub">
@@ -10,5 +10,5 @@ createRoot(document.getElementById("root")).render(
       </p>
       <BarChart />
     </div>
-  </React.StrictMode>
-);
+  );
+}
