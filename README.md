@@ -1,16 +1,18 @@
-# React + Vite
+# Student Distribution by Country
+ 
+A responsive horizontal bar chart showing the number of students from each of the top 20 countries, ordered from most to fewest.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Tech stack
+ 
+- [React](https://react.dev/)
+- [D3](https://d3js.org/)
+- [Vite](https://vite.dev/)
+- CSS, with fonts from Google Fonts (Bitter for headings, Raleway for everything else)
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## How the chart works
+ 
+1. `BarChart.jsx` builds a D3 `scaleLinear` that maps `0` to the largest student count (rounded up with `.nice()`) onto `0%` to `100%`.
+2. Each bar's width is that percentage, set as an inline style.
+3. The same scale produces the axis ticks, positioned as percentages.
+4. The tooltip position is stored in React state and updated on mouse move and on focus.
+Because the widths are percentages, the chart resizes with its container and needs no JavaScript resize handling.
